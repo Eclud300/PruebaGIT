@@ -1,0 +1,625 @@
+// Paleta Premium Medical Staff
+$dark-bg: #0f172a;
+$dark-surface: #1e293b;
+$light-bg: #f8fafc;
+$white: #ffffff;
+$text-main: #334155;
+$text-light: #94a3b8;
+$text-gray: #475569;
+$primary: #2563eb;
+$primary-glow: rgba(37, 99, 235, 0.4);
+$accent: #06b6d4;
+
+/* --- ANIMACIONES GLOBALES --- */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+
+@keyframes pulseDot {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 8px rgba(37, 99, 235, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 99, 235, 0);
+    }
+}
+
+.fade-up {
+    animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+}
+
+.delay-1 {
+    animation-delay: 0.2s;
+}
+
+.delay-2 {
+    animation-delay: 0.4s;
+}
+
+.medical-staff-wrapper {
+    background-color: $light-bg;
+    font-family: system-ui, -apple-system, sans-serif;
+    overflow-x: hidden;
+}
+
+/* --- NAVBAR SAAS PREMIUM --- */
+.saas-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box;
+    background: transparent;
+
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        cursor: pointer;
+
+        .logo-icon {
+            font-size: 1.8rem;
+        }
+
+        .brand-text {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: $white;
+            letter-spacing: -0.5px;
+        }
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 2rem;
+
+        a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+
+    .nav-auth {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        .btn-text {
+            background: transparent;
+            border: none;
+            color: $white;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+
+            &:hover {
+                color: $accent;
+            }
+        }
+
+        .btn-outline {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: $white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 2rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            backdrop-filter: blur(5px);
+
+            &:hover {
+                background: $primary;
+                border-color: $primary;
+            }
+        }
+    }
+}
+
+.hidden-mobile {
+    @media (max-width: 768px) {
+        display: none !important;
+    }
+}
+
+/* --- HERO SECTION (Compacto) --- */
+.premium-hero {
+    position: relative;
+    background: $dark-bg;
+    color: $white;
+    padding: 6rem 1.5rem 4rem 1.5rem;
+    /* Ajustado para que sea más corto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .badge-pulse {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        padding: 0.5rem 1rem;
+        border-radius: 2rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        /* Más junto al título */
+        border: 1px solid rgba(255, 255, 255, 0.2);
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            background-color: #3b82f6;
+            border-radius: 50%;
+            animation: pulseDot 2s infinite;
+        }
+    }
+
+    .main-title {
+        font-size: 3rem;
+        font-weight: 900;
+        line-height: 1.2;
+        margin: 0 0 1rem 0;
+        /* Más junto al subtítulo */
+        letter-spacing: -1px;
+
+        @media (min-width: 768px) {
+            font-size: 4.5rem;
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #60a5fa 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    .subtitle {
+        font-size: 1.15rem;
+        color: #cbd5e1;
+        max-width: 600px;
+        margin-bottom: 2rem;
+        /* Más junto al buscador */
+        line-height: 1.6;
+    }
+}
+
+.modern-search-bar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 700px;
+    background: $white;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    gap: 0.5rem;
+
+    @media (min-width: 600px) {
+        flex-direction: row;
+        border-radius: 3rem;
+        padding: 0.5rem;
+    }
+
+    .input-group {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem 1rem;
+
+        .icon {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            color: $text-main;
+            background: transparent;
+        }
+    }
+
+    .btn-search {
+        background: $primary;
+        color: $white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        @media (min-width: 600px) {
+            border-radius: 2.5rem;
+        }
+
+        &:hover {
+            background: #1d4ed8;
+            box-shadow: 0 0 15px $primary-glow;
+        }
+    }
+}
+
+/* --- TRUST BADGES (Prueba Social) --- */
+.trust-badges {
+    margin-top: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+
+    p {
+        margin: 0;
+        font-size: 0.9rem;
+        color: #94a3b8;
+
+        strong {
+            color: $white;
+        }
+    }
+
+    .avatars-group {
+        display: flex;
+        align-items: center;
+
+        img {
+            border: 2px solid $dark-bg;
+            margin-left: -10px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+
+        .more-users {
+            background: $dark-surface;
+            color: $white;
+            font-size: 0.75rem;
+            font-weight: 700;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid $dark-bg;
+            margin-left: -10px;
+            z-index: 5;
+        }
+    }
+}
+
+/* Formas flotantes del fondo del Hero */
+.hero-shapes {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+
+    .shape {
+        position: absolute;
+        filter: blur(60px);
+        opacity: 0.4;
+    }
+
+    .circle {
+        width: 300px;
+        height: 300px;
+        background: #3b82f6;
+        border-radius: 50%;
+        top: -100px;
+        right: -50px;
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .blob {
+        width: 400px;
+        height: 400px;
+        background: #06b6d4;
+        border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+        bottom: -150px;
+        left: -100px;
+        animation: float 8s ease-in-out infinite reverse;
+    }
+}
+
+/* --- SECCIÓN CONSULTORIOS --- */
+.clinics-section {
+    max-width: 1200px;
+    margin: -4rem auto 4rem auto;
+    position: relative;
+    z-index: 10;
+    padding: 0 1.5rem;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: $white;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+
+    h2 {
+        font-size: 2rem;
+        color: $dark-bg;
+        margin: 0 0 0.5rem 0;
+        font-weight: 800;
+    }
+
+    p {
+        color: $text-gray;
+        margin: 0;
+        font-size: 1.1rem;
+    }
+}
+
+.clinics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.clinic-card {
+    background: $white;
+    border-radius: 1.5rem;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e2e8f0;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+
+    &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+        border-color: #cbd5e1;
+    }
+
+    .card-header {
+        height: 120px;
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1.5rem;
+        position: relative;
+
+        &.bg-gradient-blue {
+            background: linear-gradient(135deg, #3b82f6, #1e40af);
+        }
+
+        &.bg-gradient-cyan {
+            background: linear-gradient(135deg, #06b6d4, #0369a1);
+        }
+
+        &.bg-gradient-purple {
+            background: linear-gradient(135deg, #8b5cf6, #4c1d95);
+        }
+
+        .clinic-icon {
+            font-size: 2.5rem;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .status-badge {
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 0.3rem 0.8rem;
+            border-radius: 1rem;
+
+            &.open {
+                background: #10b981;
+                color: white;
+            }
+
+            &.closed {
+                background: #ef4444;
+                color: white;
+            }
+        }
+    }
+
+    .card-body {
+        padding: 1.5rem;
+
+        h3 {
+            margin: 0 0 0.25rem 0;
+            font-size: 1.3rem;
+            color: $dark-bg;
+            font-weight: 800;
+        }
+
+        .location {
+            font-size: 0.9rem;
+            color: $text-gray;
+            margin: 0 0 1rem 0;
+        }
+
+        .specialty-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+
+            .tag {
+                background: #f1f5f9;
+                color: $text-main;
+                font-size: 0.8rem;
+                font-weight: 600;
+                padding: 0.3rem 0.8rem;
+                border-radius: 1rem;
+            }
+        }
+
+        .clinic-stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #f1f5f9;
+            padding-top: 1rem;
+
+            .stat {
+                font-size: 0.85rem;
+                color: $text-gray;
+
+                strong {
+                    color: $dark-bg;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+
+    .card-footer {
+        padding: 0 1.5rem 1.5rem 1.5rem;
+        display: flex;
+        gap: 1rem;
+
+        button {
+            flex: 1;
+            padding: 0.8rem;
+            border-radius: 0.75rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: $primary;
+            border: 2px solid $primary;
+
+            &:hover {
+                background: #eff6ff;
+            }
+        }
+
+        .btn-book {
+            background: $dark-bg;
+            color: $white;
+            border: 2px solid $dark-bg;
+
+            &:hover:not(:disabled) {
+                background: #000;
+                border-color: #000;
+            }
+
+            &:disabled {
+                background: #cbd5e1;
+                border-color: #cbd5e1;
+                cursor: not-allowed;
+            }
+        }
+    }
+}
+
+/* --- BANNER SAAS (PARA DUEÑOS DE CLÍNICAS) --- */
+.saas-banner {
+    max-width: 1000px;
+    margin: 0 auto 5rem auto;
+    background: linear-gradient(135deg, $dark-bg, $dark-surface);
+    border-radius: 2rem;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: $white;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+
+    .saas-content {
+        max-width: 600px;
+        margin: 0 auto;
+
+        h2 {
+            font-size: 2.2rem;
+            margin: 0 0 1rem 0;
+            font-weight: 800;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: $text-light;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .btn-register-clinic {
+            background: $accent;
+            color: $dark-bg;
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 3rem;
+            font-weight: 800;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+
+            &:hover {
+                transform: scale(1.05);
+                box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+            }
+        }
+    }
+}

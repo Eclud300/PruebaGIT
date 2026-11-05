@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   imports: [],
   selector: 'app-panel-empleados',
-  styleUrl: './panel-empleados.scss',
-  templateUrl: './panel-empleados.html',
+  templateUrl: './panel-empleados.component.html',
+  styleUrl: './panel-empleados.component.scss'
 })
 export class PanelEmpleados {}
