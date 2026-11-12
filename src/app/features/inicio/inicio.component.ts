@@ -10,17 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class InicioComponent {
 
-  // --- DATOS SIMULADOS PARA EL DIRECTORIO MÉDICO ---
-
-  especialidades = [
-    { nombre: 'Odontología', icono: '🦷', color: 'blue-glow' },
-    { nombre: 'Pediatría', icono: '👶', color: 'teal-glow' },
-    { nombre: 'Ginecología', icono: '🌸', color: 'pink-glow' },
-    { nombre: 'Oftalmología', icono: '👁️', color: 'purple-glow' },
-    { nombre: 'Dermatología', icono: '🧴', color: 'orange-glow' },
-    { nombre: 'Medicina General', icono: '🩺', color: 'green-glow' }
+  listaEspecialidades = [
+    'Odontología', 'Pediatría', 'Ginecología', 'Oftalmología', 
+    'Dermatología', 'Medicina General', 'Ortopedia', 'Cardiología'
   ];
 
+  // Base de datos general de consultorios registrados
   consultorios = [
     { 
       nombre: 'Centro Médico Integral Sur', 
@@ -54,6 +49,17 @@ export class InicioComponent {
       estado: 'Cerrado', 
       theme: 'purple-theme',
       icono: '👁️'
+    },
+    { 
+      nombre: 'CardioCare Sonora', 
+      direccion: 'Av. Miguel Alemán 900 Norte', 
+      especialidades: ['Cardiología', 'Medicina Interna'], 
+      especialistas: 4, 
+      calificacion: 4.9, 
+      resenas: 210, 
+      estado: 'Abierto', 
+      theme: 'orange-theme',
+      icono: '❤️'
     }
   ];
 
@@ -65,6 +71,6 @@ export class InicioComponent {
   ];
 
   buscarClinica() {
-    alert('Simulando búsqueda de clínicas en la base de datos...');
+    alert('Buscando en el directorio médico...');
   }
 }
