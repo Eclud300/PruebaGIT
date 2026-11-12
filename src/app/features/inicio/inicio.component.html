@@ -1,179 +1,174 @@
-<div class="medical-staff-wrapper">
-
-  <!-- NAVBAR SAAS PREMIUM -->
-  <nav class="saas-navbar">
-    <div class="nav-brand">
+<div class="landing-page">
+  
+  <!-- ================= NAVBAR ================= -->
+  <nav class="navbar">
+    <div class="brand">
       <span class="logo-icon">⚕️</span>
-      <span class="brand-text">Medical Staff</span>
+      <strong>Medical Staff</strong>
     </div>
-
-    <div class="nav-links hidden-mobile">
-      <a href="#directorio">Directorio Médico</a>
-      <a href="#soluciones">Para Clínicas</a>
-      <a href="#planes">Planes</a>
-    </div>
-
-    <div class="nav-auth">
+    <ul class="nav-links hidden-mobile">
+      <li><a href="#" class="active">Directorio Médico</a></li>
+      <li><a href="#">Para Clínicas</a></li>
+      <li><a href="#">Planes</a></li>
+    </ul>
+    <div class="nav-actions">
       <button class="btn-text">Iniciar Sesión</button>
-      <button class="btn-outline">Regístrate</button>
+      <button class="btn-primary-outline">Regístrate</button>
     </div>
   </nav>
 
-  <!-- HERO ANIMADO Y MODERNO -->
-  <header class="premium-hero">
-    <div class="hero-content fade-up">
-      <div class="badge-pulse">
+  <!-- ================= HERO SECTION (Directorio + SaaS) ================= -->
+  <header class="hero-section">
+    <div class="hero-content">
+      <div class="badge-location">
         <span class="dot"></span> Medical Staff | Ciudad Obregón
       </div>
-
-      <h1 class="main-title">
-        Tu salud en las mejores <br>
-        <span class="text-gradient">Clínicas y Consultorios</span>
-      </h1>
-
-      <p class="subtitle">
-        Encuentra tu clínica de confianza, revisa a sus especialistas y agenda tu cita al instante.
-        Respaldado por tecnología de grado médico.
-      </p>
-
-      <!-- Buscador Premium -->
-      <div class="modern-search-bar">
+      
+      <h1>Tu salud en las mejores<br><span class="highlight">Clínicas y Consultorios</span></h1>
+      <p class="subtitle">Encuentra tu clínica de confianza, revisa a sus especialistas y agenda tu cita al instante. Respaldado por tecnología de grado médico.</p>
+      
+      <!-- Buscador Avanzado (Tipo Doctoralia) -->
+      <div class="search-box-advanced">
         <div class="input-group">
           <span class="icon">🔍</span>
-          <input type="text" placeholder="Nombre del consultorio o especialidad (ej. Dental, Pediatría)...">
+          <input type="text" placeholder="Enfermedad, especialista o consultorio...">
         </div>
-        <button class="btn-search">Buscar Clínica</button>
+        <div class="divider"></div>
+        <div class="input-group">
+          <span class="icon">📍</span>
+          <input type="text" placeholder="Ciudad Obregón" value="Ciudad Obregón">
+        </div>
+        <button class="btn-search" (click)="buscarClinica()">Buscar</button>
       </div>
 
-      <!-- Trust Badges (Prueba Social) -->
-      <div class="trust-badges fade-up delay-2">
-        <p>Más de <strong>50+</strong> especialistas en Sonora ya confían en nosotros.</p>
-        <div class="avatars-group">
-          <img src="https://ui-avatars.com/api/?name=Dr+A&background=0D8ABC&color=fff&rounded=true&size=30" alt="Dr">
-          <img src="https://ui-avatars.com/api/?name=Dra+B&background=10B981&color=fff&rounded=true&size=30" alt="Dra">
-          <img src="https://ui-avatars.com/api/?name=Dr+C&background=F59E0B&color=fff&rounded=true&size=30" alt="Dr">
-          <span class="more-users">+47</span>
+      <div class="social-proof">
+        <p>Más de <strong>50+ especialistas</strong> en Sonora ya confían en nosotros.</p>
+        <div class="avatars">
+          <div class="avatar" style="background: #2563eb;">DA</div>
+          <div class="avatar" style="background: #059669;">DR</div>
+          <div class="avatar" style="background: #d97706;">DC</div>
+          <div class="avatar-more">+47</div>
         </div>
       </div>
-    </div>
-
-    <!-- Elementos decorativos flotantes de fondo -->
-    <div class="hero-shapes">
-      <div class="shape circle float"></div>
-      <div class="shape blob float-delayed"></div>
     </div>
   </header>
 
-  <!-- LISTADO DE CONSULTORIOS -->
-  <section class="clinics-section" id="directorio">
-    <div class="section-header fade-up">
+  <!-- ================= SECCIÓN 1: ESPECIALIDADES POPULARES ================= -->
+  <section class="section-specialties container">
+    <div class="section-header text-center">
+      <h2>Explora por Especialidad</h2>
+      <p>Encuentra rápidamente al experto que necesitas.</p>
+    </div>
+    
+    <div class="specialties-grid">
+      <div class="specialty-card {{ esp.color }}" *ngFor="let esp of especialidades">
+        <div class="icon-wrapper">{{ esp.icono }}</div>
+        <h3>{{ esp.nombre }}</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN 2: CONSULTORIOS DESTACADOS (Tu diseño original) ================= -->
+  <section class="section-clinics container">
+    <div class="section-header text-center" style="margin-bottom: 3rem;">
       <h2>Consultorios Destacados</h2>
       <p>Selecciona una clínica para explorar sus servicios, equipo médico y disponibilidad.</p>
     </div>
 
     <div class="clinics-grid">
-
-      <!-- Tarjeta de Consultorio 1 -->
-      <div class="clinic-card fade-up">
-        <div class="card-header bg-gradient-blue">
-          <div class="clinic-icon">🏥</div>
-          <div class="status-badge open">Abierto</div>
-        </div>
-        <div class="card-body">
-          <h3>Centro Médico Integral Sur</h3>
-          <p class="location">📍 Blvd. Rodolfo Elías Calles 542</p>
-
-          <div class="specialty-tags">
-            <span class="tag">Medicina General</span>
-            <span class="tag">Pediatría</span>
-          </div>
-
-          <div class="clinic-stats">
-            <div class="stat">
-              <span class="icon">👨‍⚕️</span> <strong>5</strong> Especialistas
-            </div>
-            <div class="stat">
-              <span class="icon">⭐</span> <strong>4.9</strong> (120 reseñas)
-            </div>
+      <div class="clinic-card" *ngFor="let clinica of consultorios">
+        
+        <!-- Parte superior de color con ícono y estado -->
+        <div class="card-top {{ clinica.theme }}">
+          <div class="clinic-icon">{{ clinica.icono }}</div>
+          <div class="status-badge" [ngClass]="{'bg-green': clinica.estado === 'Abierto', 'bg-red': clinica.estado === 'Cerrado'}">
+            {{ clinica.estado }}
           </div>
         </div>
-        <div class="card-footer">
-          <button class="btn-ghost">Ver Especialistas</button>
-          <button class="btn-book">Agendar Cita</button>
+        
+        <!-- Parte inferior blanca con datos -->
+        <div class="card-bottom">
+          <h3>{{ clinica.nombre }}</h3>
+          <p class="address">📍 {{ clinica.direccion }}</p>
+          
+          <div class="tags">
+            <span class="tag" *ngFor="let tag of clinica.especialidades">{{ tag }}</span>
+          </div>
+          
+          <div class="stats">
+            <span>👨‍⚕️ {{ clinica.especialistas }} Especialistas</span>
+            <span>⭐ <strong>{{ clinica.calificacion }}</strong> ({{ clinica.resenas }} reseñas)</span>
+          </div>
+          
+          <div class="card-actions">
+            <button class="btn-outline w-100">Ver Especialistas</button>
+            <button class="btn-solid w-100" [disabled]="clinica.estado === 'Cerrado'">Agendar Cita</button>
+          </div>
         </div>
+
       </div>
-
-      <!-- Tarjeta de Consultorio 2 -->
-      <div class="clinic-card fade-up delay-1">
-        <div class="card-header bg-gradient-cyan">
-          <div class="clinic-icon">🦷</div>
-          <div class="status-badge open">Abierto</div>
-        </div>
-        <div class="card-body">
-          <h3>Sonrisas Sanas Obregón</h3>
-          <p class="location">📍 Calle California 312, Centro</p>
-
-          <div class="specialty-tags">
-            <span class="tag">Ortodoncia</span>
-            <span class="tag">Odontopediatría</span>
-          </div>
-
-          <div class="clinic-stats">
-            <div class="stat">
-              <span class="icon">👨‍⚕️</span> <strong>3</strong> Especialistas
-            </div>
-            <div class="stat">
-              <span class="icon">⭐</span> <strong>5.0</strong> (85 reseñas)
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="btn-ghost">Ver Especialistas</button>
-          <button class="btn-book">Agendar Cita</button>
-        </div>
-      </div>
-
-      <!-- Tarjeta de Consultorio 3 -->
-      <div class="clinic-card fade-up delay-2">
-        <div class="card-header bg-gradient-purple">
-          <div class="clinic-icon">👁️</div>
-          <div class="status-badge closed">Cerrado</div>
-        </div>
-        <div class="card-body">
-          <h3>Clínica Visión Clara</h3>
-          <p class="location">📍 Plaza Tutuli, Local 12</p>
-
-          <div class="specialty-tags">
-            <span class="tag">Oftalmología</span>
-            <span class="tag">Óptica</span>
-          </div>
-
-          <div class="clinic-stats">
-            <div class="stat">
-              <span class="icon">👨‍⚕️</span> <strong>2</strong> Especialistas
-            </div>
-            <div class="stat">
-              <span class="icon">⭐</span> <strong>4.8</strong> (56 reseñas)
-            </div>
-          </div>
-        </div>
-        <div class="card-footer">
-          <button class="btn-ghost">Ver Especialistas</button>
-          <button class="btn-book" disabled>Agendar Cita</button>
-        </div>
-      </div>
-
+    </div>
+    
+    <div class="text-center" style="margin-top: 3rem;">
+      <button class="btn-outline" style="padding: 1rem 3rem; font-size: 1.1rem;">Ver todos los consultorios →</button>
     </div>
   </section>
 
-  <!-- BANNER PARA DOCTORES / DUEÑOS DE CLÍNICAS (SaaS) -->
-  <section class="saas-banner fade-up delay-1" id="soluciones">
-    <div class="saas-content">
+  <!-- ================= SECCIÓN 3: BENEFICIOS PARA PACIENTES ================= -->
+  <section class="section-benefits">
+    <div class="container">
+      <div class="section-header text-center">
+        <h2>¿Por qué agendar con Medical Staff?</h2>
+        <p>Llevamos la experiencia de ir al médico al siglo XXI.</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <div class="benefit-item" *ngFor="let ben of beneficiosPacientes">
+          <div class="benefit-icon">{{ ben.icono }}</div>
+          <h4>{{ ben.titulo }}</h4>
+          <p>{{ ben.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECCIÓN 4: CTA PARA DOCTORES (SaaS) ================= -->
+  <section class="section-cta">
+    <div class="cta-box container">
       <h2>¿Eres dueño de un consultorio?</h2>
-      <p>Medical Staff no es solo una agenda. Es un sistema integral (SaaS) donde gestionas tu inventario, expedientes
-        de pacientes, roles de tu personal y finanzas en un solo lugar.</p>
-      <button class="btn-register-clinic">Registrar mi Consultorio</button>
+      <p>Únete a Medical Staff. Digitaliza tus expedientes, controla tu inventario, gestiona a tu personal y atrae a cientos de pacientes nuevos en Sonora con nuestro ecosistema SaaS.</p>
+      <div class="cta-actions">
+        <button class="btn-light">Ver Planes y Precios</button>
+        <button class="btn-transparent">Agendar Demo</button>
+      </div>
     </div>
   </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="brand-footer">
+        <h3>⚕️ Medical Staff</h3>
+        <p>Tecnología de grado médico para clínicas y pacientes en Sonora.</p>
+      </div>
+      <div class="footer-links">
+        <div class="link-column">
+          <h4>Pacientes</h4>
+          <a href="#">Buscar Clínicas</a>
+          <a href="#">Especialidades</a>
+          <a href="#">Ayuda</a>
+        </div>
+        <div class="link-column">
+          <h4>Clínicas</h4>
+          <a href="#">Software Médico (SaaS)</a>
+          <a href="#">Precios</a>
+          <a href="#">Soporte Técnico</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Medical Staff. Desarrollado en Ciudad Obregón.</p>
+    </div>
+  </footer>
 
 </div>
