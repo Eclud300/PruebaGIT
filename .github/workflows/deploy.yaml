@@ -1,0 +1,59 @@
+name: Despliegue Continuo - Consultorio
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Instalar dependencias
+        run: npm install --legacy-peer-deps
+
+      - name: Compilar aplicación Angular (Build)
+        run: npx ng build --configuration production --base-href "/ConsultorioFront_End/"
+
+      - name: Preparar archivos para GitHub Pages
+        run: |
+          BUILD_DIR=$(dirname "$(find dist -name 'index.html' | sort | head -n 1)")
+          mkdir -p _site
+          cp -r "$BUILD_DIR"/* _site/
+          cp _site/index.html _site/404.html
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir artefacto de despliegue
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: './_site'
+
+  deploy:
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Publicar en producción (CD)
+        id: deployment
+        uses: actions/deploy-pages@v4
