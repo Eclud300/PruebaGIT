@@ -2,7 +2,7 @@ name: Despliegue Continuo - Consultorio
 
 on:
   push:
-    branches: ["main"]
+    branches: ["develop123"]
   workflow_dispatch:
 
 permissions:
