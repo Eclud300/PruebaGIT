@@ -30,7 +30,7 @@ jobs:
         run: npm install --legacy-peer-deps
 
       - name: Compilar aplicación Angular (Build)
-        run: npx ng build --configuration production --base-href "/ConsultorioFront_End/"
+        run: npx ng build --configuration production --base-href "/PruebaGIT/"
 
       - name: Preparar archivos para GitHub Pages
         run: |
